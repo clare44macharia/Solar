@@ -1,10 +1,11 @@
 
-@extends('layouts.app')
-@include('navBar')
+{{--@extends('layouts.app')--}}
+{{--@include('navBar')--}}
 {{--@extends('layouts.admin)--}}
 
 
-@section('content')
+{{--@section('content')--}}
+{{--    @yield('content')--}}
 
     <div>
 
@@ -40,14 +41,16 @@
         <table class="table table table-bordered table-striped" width="200">
             <tr>
                 <th>Id</th>
-                <td>Altimeter Reading:</td>
-                <td> Solar Energy</td>
-                <td>Inverter Reading</td>
-                <td>Solar Energy</td>
-                <td>Year</td>
-                <td>Month</td>
-                <td>Day</td>
                 <td>Date</td>
+                <td>Cloud Coverage</td>
+                <td>Visibility</td>
+                <td>Temperature</td>
+                <td>Dew Point</td>
+                <td>Relative humidity</td>
+                <td>Wind Speed</td>
+                <td>Station Pressure</td>
+                <td>Altimeter</td>
+                <td>Solar Energy</td>
 
             </tr>
 
@@ -55,13 +58,16 @@
 
                 <tr>
                     <td>{{ $production->id }}</td>
-                    <td>{{$production ['Altimeter']}}</td>
-                    <td>{{$production['SolarEnergy']}}</td>
-                    <td>{{$production['InverterReading']}}</td>
-                    <td>{{$production['Year']}}</td>
-                    <td>{{$production['Month']}}</td>
-                    <td>{{$production['Day']}}</td>
                     <td>{{$production['Date']}}</td>
+                    <td>{{$production['CloudCoverage']}}</td>
+                    <td>{{$production['Visibility']}}</td>
+                    <td>{{$production['Temperature']}}</td>
+                    <td>{{$production ['Altimeter']}}</td>
+                    <td>{{$production['RelativeHumidity']}}</td>
+                    <td>{{$production['WindSpeed']}}</td>
+                    <td>{{$production['StationPressure']}}</td>
+                    <td>{{$production['Altimeter']}}</td>
+                    <td>{{$production['SolarEnergy']}}</td>
 
                     <td><a href=""><button>Edit</button>&nbsp;&nbsp;<button>Delete</button></a></td>
                 </tr>

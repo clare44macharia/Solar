@@ -18,7 +18,7 @@
     <link href=" {{ asset('../assets/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{asset('../assets/css/paper-dashboard.css?v=2.0.0')}}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{{asset('../assets/demo/demo.css" rel="stylesheet')}}" />
+{{--    <link href="{{asset('../assets/demo/demo.css" rel="stylesheet')}}" />--}}
 </head>
 
 <body>
@@ -53,34 +53,34 @@
 
 
 
-                    <a href="{{route('insertForm')}}">
+                    <a href="{{route('home')}}">
                         <i class="nc-icon nc-bank"></i>
-                        <p>Dashboard</p>
+                        <p>Home</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./icons.html">
+                    <a href= "{{route('insertForm')}}">
                         <i class="nc-icon nc-diamond"></i>
-                        <p>Monitor</p>
+                        <p>Production</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./map.html">
-                        <i class="nc-icon nc-pin-3"></i>
+                    <a href="{{route('visualize')}}">
+                        <i class="nc-chart-bar-32"></i>
                         <p>Visualize</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./notifications.html">
+                    <a href="{{route('predict')}}">
                         <i class="nc-icon nc-bell-55"></i>
-                        <p>Analyze</p>
+                        <p>Predict</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./user.html">
-                        <i class="nc-icon nc-single-02"></i>
-                        <p>User Profile</p>
-                    </a>
+{{--                    <a href="{{route('edit')}}">--}}
+{{--                        <i class="nc-icon nc-single-02"></i>--}}
+{{--                        <p>User Profile</p>--}}
+{{--                    </a>--}}
                 </li>
                 <li>
 {{--                    <a href="./tables.html">--}}
@@ -99,7 +99,7 @@
 {{--                        <i class="nc-icon nc-spaceship"></i>--}}
 {{--                        <p>Upgrade to PRO</p>--}}
 {{--                    </a>--}}
-                </li>
+{{--                </li>--}}
             </ul>
         </div>
     </div>

@@ -9,3 +9,5 @@
         width: {{ $model->width }}px;
     @endif
 @endif
+
+

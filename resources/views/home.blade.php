@@ -21,14 +21,14 @@
                     </div>
                     <a class="navbar-brand" href="#pablo"><strong>PVSolarMonitor</strong></a>
                 </div>
-{{--                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">--}}
-{{--                    <span class="navbar-toggler-bar navbar-kebab"></span>--}}
-{{--                    <span class="navbar-toggler-bar navbar-kebab"></span>--}}
-{{--                    <span class="navbar-toggler-bar navbar-kebab"></span>--}}
-{{--                </button>--}}
+                {{--                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">--}}
+                {{--                    <span class="navbar-toggler-bar navbar-kebab"></span>--}}
+                {{--                    <span class="navbar-toggler-bar navbar-kebab"></span>--}}
+                {{--                    <span class="navbar-toggler-bar navbar-kebab"></span>--}}
+                {{--                </button>--}}
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
 
-{{--                   Simple Search --}}
+                    {{--                   Simple Search --}}
 
                     <form>
                         <div class="input-group no-border">
@@ -60,37 +60,37 @@
                             </div>
                         </li>
                     </div>
-                 {{--   <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link btn-magnify" href="#pablo">
-                                <i class="nc-icon nc-layout-11"></i>
-                                <p>
-                                    <span class="d-lg-none d-md-block">Stats</span>
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item btn-rotate dropdown">
-                            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="nc-icon nc-bell-55"></i>
-                                <p>
-                                    <span class="d-lg-none d-md-block">Some Actions</span>
-                                </p>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn-rotate" href="#pablo">
-                                <i class="nc-icon nc-settings-gear-65"></i>
-                                <p>
-                                    <span class="d-lg-none d-md-block">Account</span>
-                                </p>
-                            </a>
-                        </li>
-                    </ul>--}}
+                    {{--   <ul class="navbar-nav">
+                           <li class="nav-item">
+                               <a class="nav-link btn-magnify" href="#pablo">
+                                   <i class="nc-icon nc-layout-11"></i>
+                                   <p>
+                                       <span class="d-lg-none d-md-block">Stats</span>
+                                   </p>
+                               </a>
+                           </li>
+                           <li class="nav-item btn-rotate dropdown">
+                               <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   <i class="nc-icon nc-bell-55"></i>
+                                   <p>
+                                       <span class="d-lg-none d-md-block">Some Actions</span>
+                                   </p>
+                               </a>
+                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                   <a class="dropdown-item" href="#">Action</a>
+                                   <a class="dropdown-item" href="#">Another action</a>
+                                   <a class="dropdown-item" href="#">Something else here</a>
+                               </div>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link btn-rotate" href="#pablo">
+                                   <i class="nc-icon nc-settings-gear-65"></i>
+                                   <p>
+                                       <span class="d-lg-none d-md-block">Account</span>
+                                   </p>
+                               </a>
+                           </li>
+                       </ul>--}}
                 </div>
             </div>
         </nav>
@@ -114,8 +114,8 @@
                                 </div>
                                 <div class="col-7 col-md-8">
                                     <div class="numbers">
-                                        <p class="card-category">Energy</p>
-                                        <p class="card-title">2000kW
+                                        <p class="card-category"> Average Production</p>
+                                        <p class="card-title" id = "mean_production">2000kW
                                         <p>
                                     </div>
                                 </div>
@@ -124,7 +124,7 @@
                         <div class="card-footer ">
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-refresh"></i> Update Now
+                                <i class="fa fa-refresh"></i> Entries
                             </div>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                                 </div>
                                 <div class="col-7 col-md-8">
                                     <div class="numbers">
-                                        <p class="card-category">Revenue</p>
+                                        <p class="card-category">Highest Production</p>
                                         <p class="card-title">$ 15
                                         <p>
                                     </div>
@@ -150,7 +150,7 @@
                         <div class="card-footer ">
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-calendar-o"></i> Energy
+                                <i class="fa fa-calendar-o"></i> Least Production
 
                             </div>
                         </div>
@@ -167,7 +167,7 @@
                                 </div>
                                 <div class="col-7 col-md-8">
                                     <div class="numbers">
-                                        <p class="card-category">Errors</p>
+                                        <p class="card-category">Least Production</p>
                                         <p class="card-title">23
                                         <p>
                                     </div>
@@ -177,7 +177,7 @@
                         <div class="card-footer ">
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-clock-o"></i> In the last hour
+                                <i class="fa fa-clock-o"></i> Entries
                             </div>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
                                 </div>
                                 <div class="col-7 col-md-8">
                                     <div class="numbers">
-                                        <p class="card-category">Followers</p>
+                                        <p class="card-category">Entries</p>
                                         <p class="card-title">+45K
                                         <p>
                                     </div>
@@ -294,12 +294,12 @@
     <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{asset('../assets/demo/demo.js')}}"></script>
 
-<script>
-    $(document).ready(function() {
-        // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-        demo.initChartsPages();
-    });
-</script>
+    <script>
+        $(document).ready(function() {
+            // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+            demo.initChartsPages();
+        });
+    </script>
 
 
 @endsection

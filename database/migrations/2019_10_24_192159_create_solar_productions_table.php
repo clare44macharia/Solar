@@ -15,13 +15,16 @@ class CreateSolarProductionsTable extends Migration
     {
         Schema::create('solar_productions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->float('Altimeter');
-            $table->float('InverterReading');
-            $table->float('SolarEnergy');
-            $table->integer('Year');
-            $table->integer('Month');
-            $table->integer('Day');
             $table->date('Date');
+            $table->double('CloudCoverage');
+            $table->double('Visibility');
+            $table->float('Temperature');
+            $table->float('DewPoint');
+            $table->float('RelativeHumidity');
+            $table->double('WindSpeed');
+            $table->float('StationPressure');
+            $table->float('Altimeter');
+            $table->float('SolarEnergy');
             $table->timestamps();
         });
     }
