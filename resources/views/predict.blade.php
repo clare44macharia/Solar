@@ -1,49 +1,45 @@
 @extends('layouts.app')
 {{--@extends('layouts.admin')--}}
 @section('content')
-<form action="/insert" method="post">
-    <div class="col-lg-12" width = 5px>
-<table>
-        <tr>
-            {{csrf_field()}}
-            <td>
-                Altimeter Readings
-            </td>
-            <td>
-                <label>
-                    <input type="text" name="Altimeter">
-                </label>
-            </td>
-        </tr>
-    <tr>
-        <td>
-            InverterReadings(kJ)
-        </td>
-        <td>
-            <label>
-                <input type="text" name="Inverters">
-            </label>
-    </td>
-    </tr>
+    <head>
+        <meta charset="UTF-8">
+        <title>ML API</title>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 
-    <tr>
-        <td>
+    </head>
 
-            Solar Energy:(kWh)
-        </td>
+    <body>
+    <div class="login">
+        <h1>Predict Solar Production</h1>
 
 
-    <td>
-            <label>
-                <input type="text" name="Energy">
-            </label>
-        </td>
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{route('predict')}}"method="post">
+            @csrf
 
-        </tr>
-</table>
+            <input type="text" name="CloudCoverage" placeholder="Cloud coverage" required="required" />
+            <input type="text" name="Visibility" placeholder="Visibility" required="required" />
+            <input type="text" name="Temperature" placeholder="Temperature" required="required" />
+            <input type="text" name="DewPoint" placeholder="Dew point" required="required" />
+            <input type="text" name="RelativeHumidity" placeholder="Relative humidity" required="required" />
+            <input type="text" name="WindSpeed" placeholder="Wind speed" required="required" />
+            <input type="text" name="StationPressure" placeholder="Station pressure" required="required" />
+            <input type="text" name="Altimeter" placeholder="Altimeter" required="required" />
 
-        <button type="submit">Insights</button>
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+        <br>
+        <br>
+{{--        {{ prediction_text }}--}}
+
     </div>
-</form>
 
-    @endsection
+
+    </body>
+
+@endsection

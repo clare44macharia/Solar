@@ -1,12 +1,13 @@
-
+{{--@extends('layouts.admin')--}}
 
 @include('navBar')
 
 
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html>
 <head>
-{{--    <title>Date Range Fiter Data in Laravel using Ajax</title>--}}
+    {{--    <title>Date Range Fiter Data in Laravel using Ajax</title>--}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
@@ -16,7 +17,12 @@
 <body>
 <br />
 <div class="container box">
-    <h3 align="center">Date Range Fiter Data in Laravel using Ajax</h3><br />
+    <div>
+
+        <a href="{{ url('export') }}" class="btn btn-outline-dark mb-2">Export Excel</a>
+        <a href="{{ url('pdf') }}" class="btn btn-outline-dark mb-2">Export PDF</a>
+
+    </div>
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="row">
@@ -34,19 +40,32 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
+        </div>
+
         <div class="panel-body">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th>Id</th>
-                        <td>Altimeter Reading:</td>
-                        <td> Solar Energy</td>
-                        <td>Inverter Reading</td>
-                        <td>Year</td>
-                        <td>Month</td>
-                        <td>Day</td>
+{{--                        <th>Id</th>--}}
                         <td>Date</td>
+                        <td>Cloud Coverage</td>
+                        <td>Visibility</td>
+                        <td>Temperature</td>
+                        <td>Dew Point</td>
+                        <td>Relative humidity</td>
+                        <td>Wind Speed</td>
+                        <td>Station Pressure</td>
+                        <td>Altimeter</td>
+                        <td>Solar Energy</td>
+{{--                        <td>Timestamps</td>--}}
+
+
                     </tr>
                     </thead>
                     <tbody>
@@ -89,15 +108,23 @@
                     $('#total_records').text(data.length);
                     for(var count = 0; count < data.length; count++)
                     {
+
+
+
                         output += '<tr>';
-                        output += '<td>' + data[count].Id + '</td>';
-                        output += '<td>' + data[count].AltimeterReading + '</td>';
+                        // output += '<td>' + data[count].Id + '</td>';
+                        output += '<td>' + data[count].Date+ '</td>';
+                        output += '<td>' + data[count].CloudCoverage+ '</td>';
+                        output += '<td>' + data[count].Visibility + '</td>';
+                        output += '<td>' + data[count].Temperature+ '</td>';
+                        output += '<td>' + data[count].DewPoint+ '</td>';
+                        output += '<td>' + data[count].RelativeHumidity + '</td>';
+                        output += '<td>' + data[count].WindSpeed + '</td>';
+                        output += '<td>' + data[count].StationPressure + '</td>';
+                        output += '<td>' + data[count].Altimeter + '</td>';
                         output += '<td>' + data[count].SolarEnergy+ '</td>';
-                        output += '<td>' + data[count].InverterReading+'</td>';
-                        output += '<td>' + data[count].Year+'</td>';
-                        output += '<td>' + data[count].Month+'</td>';
-                        output += '<td>' + data[count].Day+'</td>';
-                        output += '<td>' + data[count].Date +'</td>';
+                        // output += '<td>' + data[count].created_at+ '</td>';
+
 
                             '</tr>';
                     }

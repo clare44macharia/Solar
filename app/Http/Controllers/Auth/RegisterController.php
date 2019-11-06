@@ -74,4 +74,27 @@ class RegisterController extends Controller
           //  ])
      ]);
     }
+
+//    public function edit(User $user)
+//    {
+//        $user = Auth::user();
+//        return view('edit', compact('user'));
+//    }
+//
+//    public function update(User $user)
+//    {
+//        $this->validate(request(), [
+//            'name' => 'required',
+//            'email' => 'required|email|unique:users',
+//            'password' => 'required|min:6|confirmed'
+//        ]);
+//
+//        $user->name = request('name');
+//        $user->email = request('email');
+//        $user->password = bcrypt(request('password'));
+//
+//        $user->save();
+//
+//        return back();
+//    }
 }

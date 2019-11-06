@@ -4500,7 +4500,7 @@ License - nucleoapp.com/license/
   font-size: 26px;
   font-weight: 300;
   margin-top: 5px;
-  position: relative;
+  position:absolute;
   top: 4px;
   text-align: right;
 }
@@ -6425,6 +6425,10 @@ License - nucleoapp.com/license/
   .card-timeline .timeline .timeline-panel {
     width: 38%;
     padding: 15px;
+  }
+  .table-production {
+      position: relative;
+      right: -880px;
   }
 }
 

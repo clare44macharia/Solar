@@ -15,7 +15,19 @@ use ConsoleTVs\Charts;
 
 class SolarProductionController extends Controller
 {
+    public function display()
+    {
+        $productions = SolarProduction::all();
+        return view('filter' ,  compact('productions'));
 
+    }
+
+    public function stats(){
+        $avg_productions = DB::table('solar_productions')
+            ->avg('SolarEnergy');
+        return view('home' ,  compact('avg_productions'));
+
+    }
     public function export()
 
     {
@@ -32,26 +44,17 @@ class SolarProductionController extends Controller
 
     }
 
-    public function pdf(){
-
-        // Fetch all customers from database
-        $data = SolarProduction::all();
-        // Send data to the view using loadView function of PDF facade
-        $pdf = PDF::loadView('insertForm', $data);
-        // If you want to store the generated pdf to the server then you can use the store function
-        $pdf->save(storage_path().'_filename.pdf');
-        // Finally, you can download the file using download function
-        return $pdf->download('customers.pdf');
-    }
-
-    public function display()
+    public function pdf()
     {
+        $data['title'] = ' Solar Production Data';
+        $data['productions'] = SolarProduction::get();
 
-        $productions = SolarProduction::all();
-        return view('filter' ,  compact('productions'));
+        $pdf = Excel::loadView('notes.list_notes', $data);
 
-
+        return $pdf->download('tuts_notes.pdf');
     }
+
+
 
     public function download( $filename = '' )
     {
@@ -69,29 +72,15 @@ class SolarProductionController extends Controller
             exit( 'Requested file does not exist on our server!' );
         }
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
     public function predict()
     {
 
         return view('predict');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
+
     public function search(Request $request)
     {
         $productions = SolarProduction::search($request['search_item']->paginate(9));
@@ -129,12 +118,6 @@ class SolarProductionController extends Controller
         return view('insertForm', compact('productions', 'searchFlag'));
 
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function chart()
     {
 
@@ -152,15 +135,6 @@ class SolarProductionController extends Controller
         return view('charts',compact('chart'));
 
     }
-
-
-
-    /**
-     * Show the form for editing the specified resoure.
-     *
-     * @param  int  $id
-     * @return Response
-     */
 
 
 
@@ -185,34 +159,13 @@ class SolarProductionController extends Controller
     }
 
 
-//        $keyword = $request['keyword'];
-//        $productions= DB::table('solar_productions')
-//            ->where('created_at',$keyword)
-//            ->get();
-//
-//        return view('productions',compact('productions'));
 
-
-
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function update($id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
+
     public function destroy($id)
     {
         //
