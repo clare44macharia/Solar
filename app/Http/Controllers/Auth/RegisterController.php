@@ -1,12 +1,12 @@
 <?php
 
-namespace solar\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
-use solar\User;
-use solar\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -59,42 +59,14 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \solar\User
+     * @return \App\User
      */
     protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            //make method allows you to manage the work factor of the algorithm using the rounds option;
-           // $hashed = Hash::make('password', [
-             // 'rounds' => 12
-
-        'password' => Hash::make($data['password']),
-          //  ])
-     ]);
+            'password' => Hash::make($data['password']),
+        ]);
     }
-
-//    public function edit(User $user)
-//    {
-//        $user = Auth::user();
-//        return view('edit', compact('user'));
-//    }
-//
-//    public function update(User $user)
-//    {
-//        $this->validate(request(), [
-//            'name' => 'required',
-//            'email' => 'required|email|unique:users',
-//            'password' => 'required|min:6|confirmed'
-//        ]);
-//
-//        $user->name = request('name');
-//        $user->email = request('email');
-//        $user->password = bcrypt(request('password'));
-//
-//        $user->save();
-//
-//        return back();
-//    }
 }

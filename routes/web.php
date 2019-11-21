@@ -11,14 +11,18 @@
 |
 */
 
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/visualize', 'HomeController@visualize')->name('visualize');
+//Route::get('/home', 'HomeController@maxi')->name('home');
 Route::get('/insertForm', 'SolarProductionController@display')->name('insertForm');
 //Route::get('/predict', 'SolarProductionController@predict')->name('predict');
 //download
@@ -35,8 +39,6 @@ Route::get('/advancedSearch', 'SolarProductionController@advancedSearch')->name(
 
 Route::get('/pdf', 'SolarProductionController@pdf')->name('pdf');
 
-//chart
-Route::get('chart', 'SolarProductionController@chart')->name('chart');
 
 //filter
 
@@ -44,5 +46,23 @@ Route::get('filter', 'SolarProductionController@display')->name('filter');
 Route::post('filter/fetch_data', 'SolarProductionController@fetch_data')->name('filter.fetch_data');
 
 //update profile
-Route::get('users/{user}',  ['as' => 'edit', 'uses' => 'RegisterController@edit']);
-//Route::patch('users/{user}/users',  ['as' => 'users.update', 'uses' => 'RegisterController@update']);
+Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile.update');
+
+//clear cache
+
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});
+
+//charts
+//lava
+//Route::get('/get-post-chart-data', 'ChartDataController@getMonthlyPostData');
+
+//charts-js
+
+
+Route::get('visualize', 'SolarProductionController@displayChart')->name('visualize');
+Route::get('charts/chart','SolarProductionController@chart');
+Route::get('charts', 'SolarProductionController@displayChart')->name('charts');

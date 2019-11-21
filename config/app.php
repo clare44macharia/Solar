@@ -135,17 +135,12 @@ return [
     */
 
     'providers' => [
-        Maatwebsite\Excel\ExcelServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
-
-
-
-
-
 
         /*
          * Laravel Framework Service Providers...
          */
+
+        Maatwebsite\Excel\ExcelServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -168,21 +163,23 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        ConsoleTVs\Charts\ChartsServiceProvider::class,
+
 
 
         /*
          * Package Service Providers...
          */
+        Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-        solar\Providers\AppServiceProvider::class,
-        solar\Providers\AuthServiceProvider::class,
-        // solar\Providers\BroadcastServiceProvider::class,
-        solar\Providers\EventServiceProvider::class,
-        solar\Providers\RouteServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
 
     ],
 
@@ -199,8 +196,6 @@ return [
 
     'aliases' => [
 
-        'PDF' => Barryvdh\DomPDF\Facade::class,
-
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
@@ -209,17 +204,13 @@ return [
         'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
         'Bus' => Illuminate\Support\Facades\Bus::class,
         'Cache' => Illuminate\Support\Facades\Cache::class,
-        'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
         'DB' => Illuminate\Support\Facades\DB::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-
-
-    'File' => Illuminate\Support\Facades\File::class,
+        'File' => Illuminate\Support\Facades\File::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,
@@ -240,6 +231,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
+        'Charts' => ConsoleTVs\Charts\Facades\Charts::class
+
 
     ],
 

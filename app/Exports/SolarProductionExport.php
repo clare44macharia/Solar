@@ -1,8 +1,8 @@
 <?php
 
-namespace solar\Exports;
+namespace App\Exports;
 
-use solar\SolarProduction;
+use App\SolarProduction;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class SolarProductionExport implements FromCollection

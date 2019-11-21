@@ -1,6 +1,7 @@
 <?php
 
-namespace solar\Http\Controllers;
+namespace App\Http\Controllers;
+
 
 use Illuminate\Http\Request;
 //use GuzzleHttp\Pool;
@@ -20,16 +21,16 @@ class GuzzlePostController extends Controller
     {
 
         $payload =[
-        "Cloud coverage" => $request['CloudCoverage'],
-        "Visibility" => $request['Visibility'],
-        "Temperature" => $request['Temperature'],
-        "Dew point" => $request['DewPoint'],
-        "Relative humidity" => $request['RelativeHumidity'],
-        "Wind speed" => $request['WindSpeed'],
+            "Cloud coverage" => $request['CloudCoverage'],
+            "Visibility" => $request['Visibility'],
+            "Temperature" => $request['Temperature'],
+            "Dew point" => $request['DewPoint'],
+            "Relative humidity" => $request['RelativeHumidity'],
+            "Wind speed" => $request['WindSpeed'],
             "Station pressure" => $request['StationPressure'],
-        "Altimeter" => $request['Altimeter'],
+            "Altimeter" => $request['Altimeter'],
 
-];
+        ];
 //        echo "start";
 //dump($payload);
 //echo "end";
@@ -39,15 +40,15 @@ class GuzzlePostController extends Controller
 
         $response = $client->post( 'https://solarpredictionapi.herokuapp.com/', [
             'json'    => $payload,
-           'headers' => $headers
+            'headers' => $headers
 
         ]);
 
-          $body = $response->getBody()->getContents();
-          $solar = json_decode($body,$assoc = true);
-          dump($solar["prediction"]);
+        $body = $response->getBody()->getContents();
+        $solar = json_decode($body,$assoc = true);
+        dump($solar["prediction"]);
 
-          return view('predict',compact($solar));
+        return view('predict',compact($solar));
 
 
 //        dump($body);

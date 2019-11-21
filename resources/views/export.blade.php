@@ -35,7 +35,7 @@
                         <td>{{ $production->InverterReading }}</td>
                         <td>{{$production->SolarEnergy}}</td>
 
-{{--                        <td>{{ date('d m Y', strtotime($note->created_at)) }}</td>--}}
+                        {{--                        <td>{{ date('d m Y', strtotime($note->created_at)) }}</td>--}}
                     </tr>
                 @endforeach
                 </tbody>

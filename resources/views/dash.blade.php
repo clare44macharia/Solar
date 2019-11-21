@@ -62,66 +62,66 @@
         </nav>
 
 
-  </div> -->
-        <div class="table-production" >
-{{--            <div class="row">--}}
-{{--                <div class="col-25">--}}
+    </div> -->
+    <div class="table-production" >
+        {{--            <div class="row">--}}
+        {{--                <div class="col-25">--}}
 
-            {{--display username--}}
-{{--            <div>--}}
-{{--                <a xmlns="http://www.w3.org/1999/html">{{ \Illuminate\Support\Facades\Auth::user()->name }}</a>--}}
-{{--            </div>--}}
+        {{--display username--}}
+        {{--            <div>--}}
+        {{--                <a xmlns="http://www.w3.org/1999/html">{{ \Illuminate\Support\Facades\Auth::user()->name }}</a>--}}
+        {{--            </div>--}}
 
-{{--            exports--}}
-            <div>
-                <a href="{{ url('export') }}" class="btn btn-outline-dark mb-2">Export Excel</a>
-                <a href="{{ url('pdf') }}" class="btn btn-outline-dark mb-2">Export PDF</a>
-            </div>
-{{--table--}}
-{{--            <div  class="col-lg-3 col-md-18 col-sm-8">--}}
-            <div>
-
-                <table class="table table table-bordered table-striped" >
-                    <tr>
-                        <th>Id</th>
-                        <td>Date</td>
-                        <td>CloudCover</td>
-                        <td>Visibility</td>
-                        <td>Temperature</td>
-                        <td>Dew Point</td>
-                        <td>Humidity</td>
-                        <td>Wind</td>
-                        <td>Pressure</td>
-                        <td>Altimeter</td>
-                        <td>SolarEnergy</td>
-
-                    </tr>
-
-                    @foreach($productions as $production)
-
-                        <tr>
-                            <td>{{ $production->id }}</td>
-                            <td>{{$production['Date']}}</td>
-                            <td>{{$production['CloudCoverage']}}</td>
-                            <td>{{$production['Visibility']}}</td>
-                            <td>{{$production['Temperature']}}</td>
-                            <td>{{$production ['Altimeter']}}</td>
-                            <td>{{$production['RelativeHumidity']}}</td>
-                            <td>{{$production['WindSpeed']}}</td>
-                            <td>{{$production['StationPressure']}}</td>
-                            <td>{{$production['Altimeter']}}</td>
-                            <td>{{$production['SolarEnergy']}}</td>
-
-{{--                            <td><a href=""><button>Edit</button>&nbsp;&nbsp;<button>Delete</button></a></td>--}}
-                        </tr>
-                    @endforeach
-
-                </table>
-            </div>
-
-
-
+        {{--            exports--}}
+        <div>
+            <a href="{{ url('export') }}" class="btn btn-outline-dark mb-2">Export Excel</a>
+            <a href="{{ url('pdf') }}" class="btn btn-outline-dark mb-2">Export PDF</a>
         </div>
+        {{--table--}}
+        {{--            <div  class="col-lg-3 col-md-18 col-sm-8">--}}
+        <div>
+
+            <table class="table table table-bordered table-striped" >
+                <tr>
+                    <th>Id</th>
+                    <td>Date</td>
+                    <td>CloudCover</td>
+                    <td>Visibility</td>
+                    <td>Temperature</td>
+                    <td>Dew Point</td>
+                    <td>Humidity</td>
+                    <td>Wind</td>
+                    <td>Pressure</td>
+                    <td>Altimeter</td>
+                    <td>SolarEnergy</td>
+
+                </tr>
+
+                @foreach($productions as $production)
+
+                    <tr>
+                        <td>{{ $production->id }}</td>
+                        <td>{{$production['Date']}}</td>
+                        <td>{{$production['CloudCoverage']}}</td>
+                        <td>{{$production['Visibility']}}</td>
+                        <td>{{$production['Temperature']}}</td>
+                        <td>{{$production ['Altimeter']}}</td>
+                        <td>{{$production['RelativeHumidity']}}</td>
+                        <td>{{$production['WindSpeed']}}</td>
+                        <td>{{$production['StationPressure']}}</td>
+                        <td>{{$production['Altimeter']}}</td>
+                        <td>{{$production['SolarEnergy']}}</td>
+
+                        {{--                            <td><a href=""><button>Edit</button>&nbsp;&nbsp;<button>Delete</button></a></td>--}}
+                    </tr>
+                @endforeach
+
+            </table>
+        </div>
+
+
+
+    </div>
 
 
     <script src="{{asset('../assets/img/logo-small.png../assets/js/core/jquery.min.js')}}"}></script>
@@ -146,9 +146,9 @@
         });
     </script>
     </div>
-        </div>
+    </div>
 
-            </div>
+    </div>
     </div>
 
 @endsection

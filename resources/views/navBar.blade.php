@@ -24,7 +24,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{route('export')}}"class="nav-link">View Trends</a>
-{{--                    <a class="nav-link" href={{route('export')}}"class="btn btn-outline-primary">">Active</a>--}}
+                    {{--                    <a class="nav-link" href={{route('export')}}"class="btn btn-outline-primary">">Active</a>--}}
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/todo/done">Insights</a>

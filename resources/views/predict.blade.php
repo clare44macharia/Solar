@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 {{--@extends('layouts.admin')--}}
 @section('content')
     <head>
@@ -12,34 +12,65 @@
     </head>
 
     <body>
-    <div class="login">
-        <h1>Predict Solar Production</h1>
+
+        <div class="main-panel">
 
 
-        <!-- Main Input For Receiving Query to our ML -->
-        <form action="{{route('predict')}}"method="post">
-            @csrf
+            <div class="content">
 
-            <input type="text" name="CloudCoverage" placeholder="Cloud coverage" required="required" />
-            <input type="text" name="Visibility" placeholder="Visibility" required="required" />
-            <input type="text" name="Temperature" placeholder="Temperature" required="required" />
-            <input type="text" name="DewPoint" placeholder="Dew point" required="required" />
-            <input type="text" name="RelativeHumidity" placeholder="Relative humidity" required="required" />
-            <input type="text" name="WindSpeed" placeholder="Wind speed" required="required" />
-            <input type="text" name="StationPressure" placeholder="Station pressure" required="required" />
-            <input type="text" name="Altimeter" placeholder="Altimeter" required="required" />
+                <div class="login">
+                    <p>Predict Solar Production</p>
+                </div>
 
+                <div class="form">
 
-            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-        </form>
+                   <form action="{{route('predict')}}"method="post">
+                        @csrf
 
-        <br>
-        <br>
-{{--        {{ prediction_text }}--}}
+                        <div class="form row">
+                            <input type="text" name="CloudCoverage" placeholder="Cloud coverage" required="required" />
+                        </div>
 
-    </div>
+                        <div class="form row">
+                            <input type="text" name="Visibility" placeholder="Visibility" required="required" />
+                        </div>
 
+                       <div class="form row">
+                            <input type="text" name="Temperature" placeholder="Temperature" required="required" />
+                       </div>
 
+                       <div class="form row">
+                            <input type="text" name="DewPoint" placeholder="Dew point" required="required" />
+                       </div>
+
+                       <div class="form row">
+                            <input type="text" name="RelativeHumidity" placeholder="Relative humidity" required="required" />
+                       </div>
+
+                       <div class="form row">
+                            <input type="text" name="WindSpeed" placeholder="Wind speed" required="required" />
+                       </div>
+
+                       <div class="form row">
+                            <input type="text" name="StationPressure" placeholder="Station pressure" required="required" />
+                       </div>
+
+                       <div class="form row">
+                            <input type="text" name="Altimeter" placeholder="Altimeter" required="required" />
+                       </div>
+
+                       <div class="button">
+                            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+                       </div>
+
+                        </form>
+
+                        <br>
+                        <br>
+                        {{--        {{ prediction_text }}--}}
+                </div>
+        </div>
+        </div>
     </body>
 
 @endsection
