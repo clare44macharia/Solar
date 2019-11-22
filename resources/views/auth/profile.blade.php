@@ -1,10 +1,10 @@
 @extends('layouts.app')
-{{--@include('layouts.admin)--}}
+
 
 @section('content')
 
-
     <div class="container">
+
         <a href="{{route('home')}}">
             <i class="nc-icon nc-bank"></i>
             <p>Home</p>

@@ -6,72 +6,56 @@
 @section('content')
 
 <html>
-<head>
+
+    <head>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <link rel="                  " href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
-</head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <link rel="                  " href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+    </head>
     <body>
+
 
         <div class="main-panel">
 
 
-            <div class="content">
+            <div class="panel panel-default">
+                <a href="{{ url('export') }}" class="button">Export Excel</a>
+                <a href="{{ url('pdf') }}" class="button">Export PDF</a>
+                <div class="panel-heading">
+                    <div class="row">
 
-            <div class="container box">
-
-                    <div class="navbar-wrapper">
-                        <div class="navbar-toggle">
-                            <button type="button" class="navbar-toggler">
-                                <span class="navbar-toggler-bar bar1"></span>
-                                <span class="navbar-toggler-bar bar2"></span>
-                                <span class="navbar-toggler-bar bar3"></span>
-                            </button>
-                        </div>
-                        <div class="col-5 pl-5 ">
-                            <image src="{{asset('../assets/img/logo.png')}}" width = "40" height = "40" class="rounded-circle"></image>
-                        </div>
-                        <a class="navbar-brand" href="#pablo"><strong>PVSolarMonitor</strong></a>
-
-
-                    </div>
-
-
-                <div class="panel panel-default">
-                    <a href="{{ url('export') }}" class="btn btn-outline-dark mb-2">Export Excel</a>
-                    <a href="{{ url('pdf') }}" class="btn btn-outline-dark mb-2">Export PDF</a>
-                    <div class="panel-heading">
-                        <div class="row">
-
-                            <div class="col-md-5"> Total Records - <b><span id="total_records"></span></b></div>
-                            <div class="col-md-5">
-                                <div class="input-group input-daterange">
-                                    <input type="text" name="from_date" id="from_date" readonly class="form-control" />
-                                    <div class="input-group-addon">to</div>
-                                    <input type="text"  name="to_date" id="to_date" readonly class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <button type="button" name="filter" id="filter" class="btn btn-info btn-sm">Filter</button>
-                                <button type="button" name="refresh" id="refresh" class="btn btn-warning btn-sm">Refresh</button>
+                        <div class="col-md-5"> Total Records - <b><span id="total_records"></span></b></div>
+                        <div class="col-md-5">
+                            <div class="input-group input-daterange">
+                                <input type="text" name="from_date" id="from_date" readonly class="form-control" />
+                                <div class="input-group-addon">to</div>
+                                <input type="text"  name="to_date" id="to_date" readonly class="form-control" />
                             </div>
                         </div>
+                        <div class="col-md-2">
+                            <button type="button" name="filter" id="filter" class="btn btn-info btn-sm">Filter</button>
+                            <button type="button" name="refresh" id="refresh" class="btn btn-warning btn-sm">Refresh</button>
+                        </div>
                     </div>
-
-
-
-
-
                 </div>
 
-                <div class="panel-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered">
-                            <thead>
+
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Production</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+
                             <tr>
                                 {{--                        <th>Id</th>--}}
                                 <td>Date</td>

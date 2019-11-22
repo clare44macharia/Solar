@@ -66,7 +66,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href= "{{route('insertForm')}}">
+                    <a href= "{{route('filter')}}">
                         <i class="nc-icon nc-diamond"></i>
                         <p>Production</p>
                     </a>

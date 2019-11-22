@@ -1,76 +1,125 @@
 @extends('layouts.admin')
-{{--@extends('layouts.admin')--}}
-@section('content')
-    <head>
-        <meta charset="UTF-8">
-        <title>ML API</title>
-        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 
-    </head>
+@section('content')
+
 
     <body>
 
         <div class="main-panel">
+            @include('layouts.header')
 
 
             <div class="content">
 
-                <div class="login">
-                    <p>Predict Solar Production</p>
+                <div class="col-md-4">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Expected Production</h4>
+
+                            <div>kW
+                           {{$solar_out}}
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form">
-
-                   <form action="{{route('predict')}}"method="post">
-                        @csrf
-
-                        <div class="form row">
-                            <input type="text" name="CloudCoverage" placeholder="Cloud coverage" required="required" />
+                <div class="card card-user">
+                        <div class="card-header">
+                            <h5 class="card-title">Predict Day-Ahead Production</h5>
                         </div>
 
-                        <div class="form row">
-                            <input type="text" name="Visibility" placeholder="Visibility" required="required" />
+                        <div class="card-body">
+                            <div class="form">
+
+
+
+                               <form action="{{route('predict')}}"method="post">
+                                    @csrf
+                                   <div class="row">
+                                       <div class="col-md-5 pl-1">
+                                           <div class="form-row">
+                                                   <label>Cloud Coverage</label>
+                                                   <input type="text" class="form-control"  name="CloudCoverage" required="required">
+
+
+                                           </div>
+                                       </div>
+
+                                       <div class="col-md-5 pl-1">
+                                           <div class="form-row">
+                                               <label>Visibility</label>
+                                               <input type="text" class="form-control" name="Visibility" required="required">
+                                           </div>
+                                       </div>
+
+                                       <div class="col-md-5 pl-1">
+                                           <div class="form-row">
+                                               <label>Temperature</label>
+                                               <input type="text" class="form-control" name="Temperature">
+                                           </div>
+                                       </div>
+
+
+                                       <div class="col-md-5 pl-1">
+                                           <div class="form-row">
+                                               <label>Dew Point</label>
+                                               <input type="text" class="form-control" name="DewPoint">
+                                           </div>
+                                       </div>
+
+                                       <div class="col-md-5 pl-1">
+                                           <div class="form-row">
+                                                   <label>Relative humidity</label>
+                                                   <input type="text" class="form-control" name="RelativeHumidity">
+                                             </div>
+                                        </div>
+
+                                       <div class="col-md-5 pl-1">
+                                           <div class="form-row">
+                                               <label>Wind Speed</label>
+                                               <input type="text" class="form-control" name="WindSpeed" >
+                                           </div>
+                                       </div>
+
+
+                                       <div class="col-md-5 pl-1">
+                                               <div class="form-row">
+                                                   <label>Station pressure</label>
+                                                   <input type="text" class="form-control"  name="StationPressure" >
+                                               </div>
+                                       </div>
+
+                                       <div class="col-md-5 pl-1">
+                                           <div class="form-row">
+                                               <label>Altimeter</label>
+                                               <input type="text" class="form-control"  name="Altimeter" >
+                                           </div>
+                                       </div>
+
+
+                                           <div class="col-md-5 pl-1">
+                                               <div class="update ml-auto mr-auto">
+                                                   <button type="submit" class="btn btn-primary btn-round">predict</button>
+                                               </div>
+                                           </div>
+
+
+
+
+
+                                   </div>
+                               </form>
+                            </div>
+
                         </div>
+                    </div>
 
-                       <div class="form row">
-                            <input type="text" name="Temperature" placeholder="Temperature" required="required" />
-                       </div>
 
-                       <div class="form row">
-                            <input type="text" name="DewPoint" placeholder="Dew point" required="required" />
-                       </div>
-
-                       <div class="form row">
-                            <input type="text" name="RelativeHumidity" placeholder="Relative humidity" required="required" />
-                       </div>
-
-                       <div class="form row">
-                            <input type="text" name="WindSpeed" placeholder="Wind speed" required="required" />
-                       </div>
-
-                       <div class="form row">
-                            <input type="text" name="StationPressure" placeholder="Station pressure" required="required" />
-                       </div>
-
-                       <div class="form row">
-                            <input type="text" name="Altimeter" placeholder="Altimeter" required="required" />
-                       </div>
-
-                       <div class="button">
-                            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-                       </div>
-
-                        </form>
-
-                        <br>
-                        <br>
-                        {{--        {{ prediction_text }}--}}
                 </div>
         </div>
-        </div>
+
     </body>
 
 @endsection

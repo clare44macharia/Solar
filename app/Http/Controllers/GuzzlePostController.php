@@ -16,6 +16,10 @@ class GuzzlePostController extends Controller
 
         return view('predict');
     }
+    public function insights(){
+
+        return view('insights');
+    }
 
     public function postRequest(Request $request)
     {
@@ -46,9 +50,9 @@ class GuzzlePostController extends Controller
 
         $body = $response->getBody()->getContents();
         $solar = json_decode($body,$assoc = true);
-        dump($solar["prediction"]);
+        $solar_out = dump($solar["prediction"]);
 
-        return view('predict',compact($solar));
+        return view('predict',compact('solar','solar_out'));
 
 
 //        dump($body);

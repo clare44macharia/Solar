@@ -31,6 +31,7 @@ Route::get( '/download/{filename}', 'SolarProductionController@download');
 //predict
 Route::get('/predict', 'GuzzlePostController@display')->name('display');
 Route::post('/predict', 'GuzzlePostController@postRequest') ->name('predict');
+Route::get('/insights', 'GuzzlePostController@insights') ->name('insights');
 
 //import Export
 Route::get('/export', 'SolarProductionController@export')->name('export');

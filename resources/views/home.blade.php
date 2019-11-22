@@ -5,14 +5,8 @@
 
 
     <div class="main-panel">
-@include('layouts.header')
-        <!-- End Navbar -->
-        <!-- <div class="panel-header panel-header-lg">
+        @include('layouts.header')
 
-    <canvas id="bigDashboardChart"></canvas>
-
-
-  </div> -->
         <div class="content">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
@@ -147,29 +141,7 @@
                     </div>
                 </div>
             </div>
-{{--            <div class="row">--}}
-{{--                <div class="col-md-4">--}}
-{{--                    <div class="card ">--}}
-{{--                        <div class="card-header ">--}}
-{{--                            <h5 class="card-title">Email Statistics</h5>--}}
-{{--                            <p class="card-category">Last Campaign Performance</p>--}}
-{{--                        </div>--}}
-{{--                        <div class="card-body ">--}}
-{{--                            <canvas id="chartEmail"></canvas>--}}
-{{--                        </div>--}}
-{{--                        <div class="card-footer ">--}}
-{{--                            <div class="legend">--}}
-{{--                                <i class="fa fa-circle text-primary"></i> Opened--}}
-{{--                                <i class="fa fa-circle text-warning"></i> Read--}}
-{{--                                <i class="fa fa-circle text-danger"></i> Deleted--}}
-{{--                                <i class="fa fa-circle text-gray"></i> Unopened--}}
-{{--                            </div>--}}
-{{--                            <hr>--}}
-{{--                            <div class="stats">--}}
-{{--                                <i class="fa fa-calendar"></i> Number of emails sent--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+
                 </div>
                 <div class="col-md-8">
                     <div class="card card-chart">
