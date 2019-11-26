@@ -16,10 +16,13 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Expected Production</h4>
-
-                            <div>kW
-                           {{$solar_out}}
-                            </div>
+                            @if(!empty($solar))
+                                <div>kW
+                               {{$solar}}
+                                </div>
+                            @else
+                                <span>CLick predict to get a value</span>
+                            @endif
 
                         </div>
                     </div>
@@ -101,9 +104,22 @@
 
                                            <div class="col-md-5 pl-1">
                                                <div class="update ml-auto mr-auto">
+
                                                    <button type="submit" class="btn btn-primary btn-round">predict</button>
                                                </div>
                                            </div>
+{{--                                       <div class="popup" onclick="myFunction()">Click me!--}}
+{{--                                           <span class="popuptext" id="myPopup">Popup text...</span>--}}
+{{--                                           <button type="submit" class="btn btn-primary btn-round">predict</button>--}}
+{{--                                       </div>--}}
+
+                                       <script>
+                                           // When the user clicks on <div>, open the popup
+                                           function myFunction() {
+                                               var popup = document.getElementById("myPopup");
+                                               popup.classList.toggle("show");
+                                           }
+                                       </script>
 
 
 

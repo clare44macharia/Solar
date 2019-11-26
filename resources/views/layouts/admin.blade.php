@@ -83,24 +83,26 @@
                         <p>Predict</p>
                     </a>
                 </li>
+
                 <li>
-                                        <a href="{{route('profile')}}">
-                                            <i class="nc-icon nc-single-02"></i>
-                                            <p>User Profile</p>
-                                        </a>
+                    <a href="{{route('insights')}}">
+                    <i class="nc-icon nc-tile-56"></i>
+                                        <p>Predictions</p>
+                    </a>
                 </li>
+
                 <li>
-                {{--                    <a href="./tables.html">--}}
-                {{--                        <i class="nc-icon nc-tile-56"></i>--}}
-                {{--                        <p>Table List</p>--}}
-                {{--                    </a>--}}
-                {{--                </li>--}}
-                {{--                <li>--}}
-                {{--                    <a href="./typography.html">--}}
-                {{--                        <i class="nc-icon nc-caps-small"></i>--}}
-                {{--                        <p>Typography</p>--}}
-                {{--                    </a>--}}
-                {{--                </li>--}}
+                    <a href="{{route('profile')}}">
+                        <i class="nc-icon nc-single-02"></i>
+                        <p>User Profile</p>
+                    </a>
+                </li>
+{{--                                <li>--}}
+{{--                                    <a href="./typography.html">--}}
+{{--                                        <i class="nc-icon nc-caps-small"></i>--}}
+{{--                                        <p>Typography</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
                 {{--                <li class="active-pro">--}}
                 {{--                    <a href="./upgrade.html">--}}
                 {{--                        <i class="nc-icon nc-spaceship"></i>--}}

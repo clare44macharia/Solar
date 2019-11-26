@@ -34,9 +34,13 @@ class HomeController extends Controller
             ->min('SolarEnergy');
         $showCounts = DB::table('solar_productions')
             ->count('SolarEnergy');
-        return view('home',compact('showAvgs1','showMax','showMin','showCounts'));
+        return view('charts',compact('showAvgs1','showMax','showMin','showCounts'));
 
     }
+//
+//public function index(){
+//    return view('charts');
+//}
 
 
     public function visualize(){

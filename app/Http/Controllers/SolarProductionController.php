@@ -29,9 +29,6 @@ class SolarProductionController extends Controller
     {
         $showMax = SolarProduction::where('id', $id)->count();
         return view('home', compact('showMax'));
-//        $avg_productions = DB::table('solar_productions')
-//            ->avg('SolarEnergy');
-//        return view('home' ,  compact('avg_productions'));
 
     }
 

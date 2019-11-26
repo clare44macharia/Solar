@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\SolarPredictions;
 use Illuminate\Http\Request;
-//use GuzzleHttp\Pool;
 use GuzzleHttp\Client;
 
 
@@ -16,10 +16,7 @@ class GuzzlePostController extends Controller
 
         return view('predict');
     }
-    public function insights(){
 
-        return view('insights');
-    }
 
     public function postRequest(Request $request)
     {
@@ -35,10 +32,27 @@ class GuzzlePostController extends Controller
             "Altimeter" => $request['Altimeter'],
 
         ];
-//        echo "start";
-//dump($payload);
-//echo "end";
 
+        $solar = $this->getPrediction($payload);
+
+        $solarPrediction = new SolarPredictions();
+        $solarPrediction -> CloudCoverage = request('CloudCoverage');
+        $solarPrediction -> Visibility = request('Visibility');
+        $solarPrediction -> Temperature = request('Temperature');
+        $solarPrediction -> DewPoint = request('DewPoint');
+        $solarPrediction -> RelativeHumidity = request('RelativeHumidity');
+        $solarPrediction -> WindSpeed = request('WindSpeed');
+        $solarPrediction -> StationPressure = request('StationPressure');
+        $solarPrediction -> Altimeter = request('Altimeter');
+        $solarPrediction -> PredictedSolarEnergy = $solar['prediction'];
+        $solarPrediction ->save();
+
+
+        return view('predict')->with('solar', $solar["prediction"]);
+
+
+    }
+    public function getPrediction($payload){
         $client   = new Client();
         $headers = array('Content-Type' => 'application/json');
 
@@ -50,22 +64,9 @@ class GuzzlePostController extends Controller
 
         $body = $response->getBody()->getContents();
         $solar = json_decode($body,$assoc = true);
-        $solar_out = dump($solar["prediction"]);
 
-        return view('predict',compact('solar','solar_out'));
-
-
-//        dump($body);
-//        while (!$body->eof()) {
-//            echo $body->read(1024);
-//        }
-//
-//        dump($response);
-
-//
-//        $response = $client->post('https://solarpredictionapi.herokuapp.com/', [ 'body' => $payload,
-//            'headers' => $headers
-//        ]);
-
+        return $solar;
     }
+
+
 }

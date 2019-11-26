@@ -1,148 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Contact V5</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <!--===============================================================================================-->
-</head>
-<body>
+@extends('layouts.admin')
 
-        <div class="main-panel">
-            <div class="content">
-                <div class="container-contact100">
-                    <div class="wrap-contact100">
-                        <form class="contact100-form validate-form">
-                                <span class="contact100-form-title">
-                                    Contact Us
-                                </span>
+<div class="main-panel">
+    @include('layouts.header')
 
-                            <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
-                                <span class="label-input100">FULL NAME *</span>
-                                <input class="input100" type="text" name="name" placeholder="Enter Your Name">
-                            </div>
-
-                            <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Your Email (e@a.x)">
-                                <span class="label-input100">Email *</span>
-                                <input class="input100" type="text" name="email" placeholder="Enter Your Email ">
-                            </div>
-
-                            <div class="wrap-input100 bg1 rs1-wrap-input100">
-                                <span class="label-input100">Phone</span>
-                                <input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
-                            </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Predictions</h4>
+                    </div>
 
 
-                            <div class="container-contact100-form-btn">
-                                <button class="contact100-form-btn">
-                                        <span>
-                                            Submit
-                                            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-                                        </span>
-                                </button>
-                            </div>
-                        </form>
+                    <div class="panel panel-default">
+                        <a href="{{ url('export1') }}" class="btn btn-outline-dark mb-2">Export Excel</a>
+                        <a href="{{ url('pdf') }}" class="btn btn-outline-dark mb-2">Export PDF</a>
+                        <div class="panel-heading">
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                {{--    <table class="table table table-bordered table-striped" width="200">--}}
+
+                                <th>Id</th>
+                                <td>Cloud Coverage</td>
+                                <td>Visibility</td>
+                                <td>Temperature</td>
+                                <td>Dew Point</td>
+                                <td>Relative humidity</td>
+                                <td>Wind Speed</td>
+                                <td>Station Pressure</td>
+                                <td>Altimeter</td>
+                                <td> Predicted Solar Energy</td>
+                                <td>Date</td>
+                                </thead>
+
+
+                                @foreach($predictions as $production)
+
+                                    <tbody>
+                                    <tr>
+                                        <td>{{ $production->id }}</td>
+                                        <td>{{$production['CloudCoverage']}}</td>
+                                        <td>{{$production['Visibility']}}</td>
+                                        <td>{{$production['Temperature']}}</td>
+                                        <td>{{$production ['DewPoint']}}</td>
+                                        <td>{{$production['RelativeHumidity']}}</td>
+                                        <td>{{$production['WindSpeed']}}</td>
+                                        <td>{{$production['StationPressure']}}</td>
+                                        <td>{{$production['Altimeter']}}</td>
+                                        <td>{{$production['PredictedSolarEnergy']}}</td>
+                                        <td>{{$production['created_at']}}</td>
+
+
+                                    </tr>
+                                    </tbody>
+
+
+                                @endforeach
+
+                            </table>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
 
-<!--===============================================================================================-->
-<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/bootstrap/js/popper.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/select2/select2.min.js"></script>
-<script>
-    $(".js-select2").each(function(){
-        $(this).select2({
-            minimumResultsForSearch: 20,
-            dropdownParent: $(this).next('.dropDownSelect2')
-        });
 
 
-        $(".js-select2").each(function(){
-            $(this).on('select2:close', function (e){
-                if($(this).val() == "Please chooses") {
-                    $('.js-show-service').slideUp();
-                }
-                else {
-                    $('.js-show-service').slideUp();
-                    $('.js-show-service').slideDown();
-                }
-            });
-        });
-    })
-</script>
-<!--===============================================================================================-->
-<script src="vendor/daterangepicker/moment.min.js"></script>
-<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/noui/nouislider.min.js"></script>
-<script>
-    var filterBar = document.getElementById('filter-bar');
-
-    noUiSlider.create(filterBar, {
-        start: [ 1500, 3900 ],
-        connect: true,
-        range: {
-            'min': 1500,
-            'max': 7500
-        }
-    });
-
-    var skipValues = [
-        document.getElementById('value-lower'),
-        document.getElementById('value-upper')
-    ];
-
-    filterBar.noUiSlider.on('update', function( values, handle ) {
-        skipValues[handle].innerHTML = Math.round(values[handle]);
-        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
-        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
-    });
-</script>
-<!--===============================================================================================-->
-<script src="js/main.js"></script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-23581568-13');
-</script>
-
-</body>
-</html>
